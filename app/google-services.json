@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "743992591460",
+    "project_id": "poznaj-powiedzenia",
+    "storage_bucket": "poznaj-powiedzenia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743992591460:android:314fec3bb6f8b23b9f0b71",
+        "android_client_info": {
+          "package_name": "com.example.poznajpowiedzenia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743992591460-tv7k0b8ckk9bv8oe712bkkphofjnok8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNAcyoz1sqEQqueyf8hb1rs-GdvMzr3JI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743992591460-tv7k0b8ckk9bv8oe712bkkphofjnok8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
