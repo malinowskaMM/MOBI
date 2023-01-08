@@ -27,12 +27,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/teal_700"
+            android:layout_marginVertical="16dp"
             android:gravity="center_horizontal"
-            android:layout_marginVertical="16dp"/>
+            android:text="Zaloguj się"
+            android:textColor="@color/teal_700"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Login"/>
+            android:text="Zaloguj się" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,18 +80,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Not registered yet"
-                android:textSize="16sp"/>
+                android:text="Nie posiadasz konta?"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvRegisterHere"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:text="Register here"
+                android:text="Zarejestruj się"
                 android:textColor="@color/teal_700"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
