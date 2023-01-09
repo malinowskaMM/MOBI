@@ -1,11 +1,9 @@
-package com.example.poznajpowiedzenia;
+package com.example.poznajpowiedzenia.quote;
 
-import android.text.style.QuoteSpan;
-
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.example.poznajpowiedzenia.controller.AppController;
 
 import org.json.JSONArray;
 import org.json.JSONException;

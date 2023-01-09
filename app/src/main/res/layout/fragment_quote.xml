@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".QuoteFragment">
+    tools:context=".quote.QuoteFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
@@ -29,12 +29,12 @@
 
     <TextView
         android:id="@+id/meaning"
-        android:text="Meaning"
-        android:textSize="20sp"
-        android:layout_below="@+id/cardview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/cardview"
+        android:layout_marginTop="75dp"
         android:layout_centerHorizontal="true"
-        />
-    
+        android:text="Meaning"
+        android:textSize="20sp" />
+
 </RelativeLayout>

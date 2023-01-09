@@ -1,4 +1,4 @@
-package com.example.poznajpowiedzenia;
+package com.example.poznajpowiedzenia.controller;
 
 import android.app.Application;
 import android.text.TextUtils;

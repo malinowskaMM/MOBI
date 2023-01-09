@@ -1,4 +1,4 @@
-package com.example.poznajpowiedzenia;
+package com.example.poznajpowiedzenia.quote;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

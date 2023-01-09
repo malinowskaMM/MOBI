@@ -1,4 +1,4 @@
-package com.example.poznajpowiedzenia;
+package com.example.poznajpowiedzenia.quote;
 
 import android.os.Bundle;
 
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.poznajpowiedzenia.R;
 
 /**
  * A simple {@link Fragment} subclass.

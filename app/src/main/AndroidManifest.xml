@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".AppController"
+        android:name=".controller.AppController"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,7 +16,14 @@
         android:theme="@style/Theme.PoznajPowiedzenia"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".quiz.QuizActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +36,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +49,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,7 +62,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".HomePage"
+            android:name=".activities.HomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

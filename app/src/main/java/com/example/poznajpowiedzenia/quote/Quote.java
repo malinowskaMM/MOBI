@@ -1,4 +1,4 @@
-package com.example.poznajpowiedzenia;
+package com.example.poznajpowiedzenia.quote;
 
 
 public class Quote {
