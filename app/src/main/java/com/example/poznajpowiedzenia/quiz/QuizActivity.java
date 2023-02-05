@@ -27,6 +27,8 @@ public class QuizActivity extends AppCompatActivity {
 
         btn_back = findViewById(R.id.back_btn);
 
+        question = findViewById(R.id.question);
+
         btn_back.setOnClickListener( view -> {
             startActivity(new Intent(this, HomePage.class));
         });
