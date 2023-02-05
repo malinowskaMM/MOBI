@@ -25,4 +25,12 @@ public class ListOfQuestions implements Serializable {
     public int getNumberOfCorrectAnswers() {
         return numberOfCorrectAnswers;
     }
+
+    public void increaseNumberOfQuestion() {
+        numberOfQuestion++;
+    }
+
+    public void increaseNumberOfCorrectAnswers() {
+        numberOfCorrectAnswers++;
+    }
 }

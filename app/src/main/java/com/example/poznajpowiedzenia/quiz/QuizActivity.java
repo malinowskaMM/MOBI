@@ -43,7 +43,7 @@ public class QuizActivity extends AppCompatActivity {
 
         question = findViewById(R.id.question);
 
-        btn_back.setOnClickListener( view -> {
+        btn_back.setOnClickListener(view -> {
             startActivity(new Intent(this, HomePage.class));
         });
 
@@ -73,5 +73,25 @@ public class QuizActivity extends AppCompatActivity {
             ansD.setBackgroundColor(Color.parseColor("#875E1F"));
 
         });
+    }
+
+//   startActivity(nextQuestion(model, model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect()));
+
+    public Intent nextQuestion(ListOfQuestions model, String answer) {
+        Intent i;
+        if (model.getNumberOfQuestion() == 10) {
+            i = new Intent(this, HomePage.class);
+            i.putExtra("LastQuiz", model.getNumberOfCorrectAnswers());
+            return i;
+        } else {
+            if (model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect().equals(answer)) {
+                model.increaseNumberOfCorrectAnswers();
+            }
+            model.increaseNumberOfQuestion();
+
+            i = new Intent(this, QuizActivity.class);
+            i.putExtra("questions", model);
+        }
+        return i;
     }
 }
