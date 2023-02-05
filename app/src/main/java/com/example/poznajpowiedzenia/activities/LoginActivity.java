@@ -18,6 +18,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -25,8 +30,10 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText etLoginPassword;
     TextView tvRegisterHere;
     Button btnLogin;
-
+    String number;
     FirebaseAuth mAuth;
+    public static List<String> number1 = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +78,20 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
+                        mAuth = FirebaseAuth.getInstance();
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        db.collection("Users")
+                                .document(email)
+                                .get()
+                                .addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        number = String.valueOf(task1.getResult().getLong("result"));
+                                        number1.add(number);
+                                    } else {
+                                        System.out.println(("Error getting documents." + task1.getException()));
+                                    }
+                                });
+
                         Toast.makeText(LoginActivity.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }else{

@@ -105,6 +105,9 @@ public class QuizActivity extends AppCompatActivity {
 
     public Intent nextQuestion(ListOfQuestions model, String answer) {
         Intent i;
+        if (model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect().equals(answer)) {
+            model.increaseNumberOfCorrectAnswers();
+        }
         if (model.getNumberOfQuestion() == 10) {
             i = new Intent(this, HomePage.class);
             i.putExtra("LastQuiz", model.getNumberOfCorrectAnswers());
@@ -122,9 +125,6 @@ public class QuizActivity extends AppCompatActivity {
 
             return i;
         } else {
-            if (model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect().equals(answer)) {
-                model.increaseNumberOfCorrectAnswers();
-            }
             model.increaseNumberOfQuestion();
 
             i = new Intent(this, QuizActivity.class);

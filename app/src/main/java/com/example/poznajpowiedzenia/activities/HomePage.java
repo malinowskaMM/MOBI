@@ -15,6 +15,7 @@ import com.example.poznajpowiedzenia.quiz.ListOfQuestions;
 import com.example.poznajpowiedzenia.quiz.Question;
 import com.example.poznajpowiedzenia.quiz.QuizActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Collections;
