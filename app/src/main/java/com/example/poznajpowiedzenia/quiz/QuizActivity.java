@@ -3,7 +3,9 @@ package com.example.poznajpowiedzenia.quiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -43,6 +45,33 @@ public class QuizActivity extends AppCompatActivity {
 
         btn_back.setOnClickListener( view -> {
             startActivity(new Intent(this, HomePage.class));
+        });
+
+        ansA.setOnClickListener( view -> {
+            ansA.setBackgroundColor(Color.parseColor("#875E1F"));
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Do something after 5s = 5000ms
+                    startActivity(new Intent(QuizActivity.this, QuizActivity.class));
+                }
+            }, 1000);
+        });
+
+        ansB.setOnClickListener( view -> {
+            ansB.setBackgroundColor(Color.parseColor("#875E1F"));
+
+        });
+
+        ansC.setOnClickListener( view -> {
+            ansC.setBackgroundColor(Color.parseColor("#875E1F"));
+
+        });
+
+        ansD.setOnClickListener( view -> {
+            ansD.setBackgroundColor(Color.parseColor("#875E1F"));
+
         });
     }
 }

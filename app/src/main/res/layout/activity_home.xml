@@ -7,48 +7,36 @@
     android:background="@color/white"
     tools:context=".activities.HomePage">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="214dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="32dp"
-        android:text="Wyloguj się"
-        android:textSize="@dimen/font_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnBack"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066"
-        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:id="@+id/linLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="103dp"
-        android:layout_height="80dp"
-        android:text="Wróć"
-        android:textSize="@dimen/font_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="Wróć"
+            android:textSize="@dimen/font_size"
+            tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btnQuiz"
-        android:layout_width="341dp"
-        android:layout_height="87dp"
-        android:text="QUIZ"
-        android:textSize="@dimen/font_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.237"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btnQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:text="QUIZ"
+            android:textSize="@dimen/font_size"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="Wyloguj się"
+            android:textSize="@dimen/font_size"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView3"
@@ -60,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linLayout1"
         app:layout_constraintVertical_bias="0.951" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -76,5 +64,41 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="871dp" />
+
+    <LinearLayout
+        android:id="@+id/linLayout2"
+        android:layout_width="409dp"
+        android:layout_height="273dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ostatni wynik twojego quizu"
+            android:textAlignment="center"
+            android:textColor="#083741"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@id/textView2"
+            app:layout_constraintStart_toStartOf="@id/textView2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="#083741" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
