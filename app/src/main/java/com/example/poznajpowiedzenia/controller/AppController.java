@@ -6,20 +6,42 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.poznajpowiedzenia.data.wiki.Proverb;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AppController extends Application {
     public static final String TAG = AppController.class.getSimpleName();
     private static  AppController mInstance;
     private RequestQueue mRequestQueue;
+    public static List<Proverb> proverbs = new ArrayList<>();
 
     public static synchronized AppController getInstance() {
         return mInstance;
     }
 
+    public static synchronized List<Proverb> getInstance2() {
+        return proverbs;
+    }
     @Override
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("Powiedzenia")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            proverbs.add(new Proverb(document.getString("title"), document.getString("meaning")));
+                        }
+                    } else {
+                        System.out.println(("Error getting documents." + task.getException()));
+                    }
+                });
     }
 
     public RequestQueue getmRequestQueue() {

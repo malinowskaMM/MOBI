@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(quoteViewPagerAdapter);
 
         mAuth = FirebaseAuth.getInstance();
-
         profile = findViewById(R.id.profile);
 
         profile.setOnClickListener( view -> {
@@ -63,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        private List<Fragment> getFragments() {
+        private List<Fragment> getFragmentsMock() {
             List<Fragment> fragmentList = new ArrayList<>();
-            for(int i = 0; i < /*fragmentList.size()*/5; i++) {
+            for(int i = 0; i < 5; i++) {
                 QuoteFragment quoteFragment = QuoteFragment.newInstance("example", "example meaning");
                 fragmentList.add(quoteFragment);
             }

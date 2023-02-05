@@ -13,17 +13,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class PolishProverbsFetcher {
 
-    public static List<String> fetchFromWiki() throws IOException {
+    public static List<Proverb> fetchFromWiki() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         List<String> proverbs = new ArrayList<>();
         List<String> proverbsLinkList = fetchProverbsLinkList();
+        List<Proverb> proverbsList = new ArrayList<>();
         for (int i = 0; i < proverbsLinkList.size(); i++) {
             String proverbWebsiteSource = getWebsiteSource("https://pl.wiktionary.org" + proverbsLinkList.get(i));
             String proverbTitle = readProverbTitle(proverbWebsiteSource);
             String proverbMeaning = readProverbMeaning(proverbWebsiteSource);
+            proverbsList.add(new Proverb(proverbTitle, proverbMeaning));
             proverbs.add(objectMapper.writeValueAsString(new Proverb(proverbTitle, proverbMeaning)));
         }
-        return proverbs;
+        return proverbsList;
     }
 
         private static List<String> fetchProverbsLinkList() throws IOException {
