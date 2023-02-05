@@ -63,9 +63,10 @@ public class HomePage extends AppCompatActivity {
         proverbsForQuiz.forEach(proverb -> {
             List<Proverb> proverbsInQuestion = proverbsForQuiz;
             proverbsInQuestion.remove(proverb);
-            questions.add(new Question(proverb.getTitle(), proverb.getMeaning()))
+            //questions.add(new Question(proverb.getTitle(), proverb.getMeaning()))
         });
-        return proverbsForQuiz;
+        //return proverbsForQuiz;
+        return null;
     }
 
 }

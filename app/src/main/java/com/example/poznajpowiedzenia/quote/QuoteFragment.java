@@ -81,19 +81,22 @@ public class QuoteFragment extends Fragment {
         String quote = getArguments().getString("quote");
         String meaning = getArguments().getString("meaning");
         quoteText.setText(quote);
-        meaningText.setText("-" + meaning);
+        meaningText.setText(meaning);
 
         btnFontSizeUp.setOnClickListener( view -> {
-            if(quoteText.getTextSize() <= 50 && meaningText.getTextSize() <= 50) {
-                quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, quoteText.getTextSize() + 1);
-                meaningText.setTextSize(TypedValue.COMPLEX_UNIT_PX, meaningText.getTextSize() + 1);
+            if(quoteText.getTextSize() <= 80 && meaningText.getTextSize() <= 80) {
+                quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, quoteText.getTextSize() + 5);
+                meaningText.setTextSize(TypedValue.COMPLEX_UNIT_PX, meaningText.getTextSize() + 5);
             }
         });
 
         btnFontSizeDown.setOnClickListener( view -> {
-            quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, quoteText.getTextSize()-1);
-            meaningText.setTextSize(TypedValue.COMPLEX_UNIT_PX, meaningText.getTextSize()-1);
+            if(quoteText.getTextSize() >= 15 && meaningText.getTextSize() >= 15) {
+                quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, quoteText.getTextSize() - 5);
+                meaningText.setTextSize(TypedValue.COMPLEX_UNIT_PX, meaningText.getTextSize() - 5);
+            }
         });
+
 
         return quoteView;
     }

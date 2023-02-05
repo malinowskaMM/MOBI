@@ -1,54 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="false"
+    android:orientation="vertical"
+    android:fillViewport="true"
     android:scrollbarStyle="outsideInset"
     tools:context=".quote.QuoteFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical" />
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <Button
             android:id="@+id/sizeUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/cardview"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="152dp"
-            android:layout_marginBottom="1dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="104dp"
+            android:background="#D9865E1F"
             android:backgroundTint="#00FFFFFF"
             android:text="A+"
-            android:textColor="#865E1F"
+            android:textColor="#FFFFFF"
             android:textSize="@dimen/font_size" />
 
         <Button
             android:id="@+id/sizeDown"
-            android:layout_width="72dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/cardview"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="27dp"
-            android:layout_marginBottom="18dp"
-            android:layout_toStartOf="@+id/sizeUp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="104dp"
+            android:background="#DA865E1F"
             android:backgroundTint="#00000000"
             android:text="A-"
-            android:textColor="#865E1F"
+            android:textColor="#FFFFFF"
             android:textSize="@dimen/font_size" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="61dp"
-            android:layout_marginEnd="61dp"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentBottom="false"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="117dp"
             app:cardBackgroundColor="#D2875E1F">
 
             <TextView
@@ -68,10 +81,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardview"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp"
-            android:text="Meaning" />
+            android:layout_marginTop="55dp"
+            android:text="Meaning"
+            android:textColor="#083741" />
 
     </RelativeLayout>
 
 </ScrollView>
 
+</LinearLayout>
