@@ -48,30 +48,51 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansA.setOnClickListener( view -> {
-            ansA.setBackgroundColor(Color.parseColor("#875E1F"));
+            checkAnswer(model, ansA.getText().toString(), ansA);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     // Do something after 5s = 5000ms
-                    startActivity(new Intent(QuizActivity.this, QuizActivity.class));
+                    startActivity(nextQuestion(model, ansA.getText().toString()));
                 }
             }, 1000);
         });
 
         ansB.setOnClickListener( view -> {
-            ansB.setBackgroundColor(Color.parseColor("#875E1F"));
-
+            checkAnswer(model, ansB.getText().toString(), ansB);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Do something after 5s = 5000ms
+                    startActivity(nextQuestion(model, ansB.getText().toString()));
+                }
+            }, 1000);
         });
 
         ansC.setOnClickListener( view -> {
-            ansC.setBackgroundColor(Color.parseColor("#875E1F"));
-
+            checkAnswer(model, ansC.getText().toString(), ansC);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Do something after 5s = 5000ms
+                    startActivity(nextQuestion(model, ansC.getText().toString()));
+                }
+            }, 1000);
         });
 
         ansD.setOnClickListener( view -> {
-            ansD.setBackgroundColor(Color.parseColor("#875E1F"));
-
+            checkAnswer(model, ansD.getText().toString(), ansD);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Do something after 5s = 5000ms
+                    startActivity(nextQuestion(model, ansD.getText().toString()));
+                }
+            }, 1000);
         });
     }
 
@@ -93,5 +114,13 @@ public class QuizActivity extends AppCompatActivity {
             i.putExtra("questions", model);
         }
         return i;
+    }
+
+    public void checkAnswer(ListOfQuestions model, String answer, TextView button) {
+        if (model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect().equals(answer)) {
+            button.setBackgroundColor(Color.parseColor("#7ED957"));
+        } else {
+            button.setBackgroundColor(Color.parseColor("#FF1616"));
+        }
     }
 }
