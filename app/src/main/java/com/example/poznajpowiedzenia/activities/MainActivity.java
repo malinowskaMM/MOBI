@@ -11,7 +11,6 @@ import android.widget.Button;
 import com.example.poznajpowiedzenia.R;
 import com.example.poznajpowiedzenia.controller.AppController;
 import com.example.poznajpowiedzenia.data.wiki.Proverb;
-import com.example.poznajpowiedzenia.quote.QuoteData;
 import com.example.poznajpowiedzenia.quote.QuoteFragment;
 import com.example.poznajpowiedzenia.quote.QuoteViewPagerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         profile.setOnClickListener( view -> {
             startActivity(new Intent(this, HomePage.class));
         });
-
-        new QuoteData().getQuotes();
 
     }
         @Override

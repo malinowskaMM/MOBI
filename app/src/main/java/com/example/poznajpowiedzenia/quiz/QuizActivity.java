@@ -11,6 +11,11 @@ import android.widget.TextView;
 
 import com.example.poznajpowiedzenia.R;
 import com.example.poznajpowiedzenia.activities.HomePage;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -103,6 +108,18 @@ public class QuizActivity extends AppCompatActivity {
         if (model.getNumberOfQuestion() == 10) {
             i = new Intent(this, HomePage.class);
             i.putExtra("LastQuiz", model.getNumberOfCorrectAnswers());
+
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            String email = mAuth.getCurrentUser().getEmail();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            Map<String, Object> result = new HashMap<>();
+            result.put("result", model.getNumberOfCorrectAnswers());
+
+            db.collection("Users")
+                    .document(email)
+                    .set(result);
+
             return i;
         } else {
             if (model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect().equals(answer)) {

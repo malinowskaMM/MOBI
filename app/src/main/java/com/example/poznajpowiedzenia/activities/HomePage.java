@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.poznajpowiedzenia.R;
 import com.example.poznajpowiedzenia.controller.AppController;
@@ -26,6 +27,7 @@ public class HomePage extends AppCompatActivity {
     Button btnBack;
     Button btnQuiz;
     FirebaseAuth mAuth;
+    TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +37,17 @@ public class HomePage extends AppCompatActivity {
         btnLogOut = findViewById(R.id.btnLogout);
         btnBack = findViewById(R.id.btnBack);
         btnQuiz = findViewById(R.id.btnQuiz);
+        result = findViewById(R.id.Result);
         mAuth = FirebaseAuth.getInstance();
 
+        int cos = getIntent().getIntExtra("LastQuiz", -300);
+        if(cos != -300) {
+            result.setText(String.valueOf(cos));
+        }
+        else {
+            String nowaliczba = LoginActivity.getInstance();
+            result.setText(nowaliczba);
+        }
         btnLogOut.setOnClickListener(view -> {
             mAuth.signOut();
 

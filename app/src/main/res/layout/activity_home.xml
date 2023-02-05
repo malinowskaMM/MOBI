@@ -88,14 +88,15 @@
             android:textAlignment="center"
             android:textColor="#083741"
             android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="@id/textView2"
-            app:layout_constraintStart_toStartOf="@id/textView2" />
+            app:layout_constraintEnd_toEndOf="@id/Result"
+            app:layout_constraintStart_toStartOf="@id/Result" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/Result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:textSize="35dp"
+            android:text=""
             android:textAlignment="center"
             android:textColor="#083741" />
 

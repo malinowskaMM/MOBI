@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.poznajpowiedzenia.R;
+import com.example.poznajpowiedzenia.controller.AppController;
+import com.example.poznajpowiedzenia.data.wiki.Proverb;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -44,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
         tvRegisterHere.setOnClickListener(view ->{
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
+    }
+
+    public static synchronized String getInstance() {
+        if (number1.size() > 0) {
+            return number1.get(0);
+        } else {
+            return "brak";
+        }
     }
 
     private void loginUser(){
