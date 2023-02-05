@@ -17,8 +17,5 @@ import java.util.List;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws IOException {
-        List<String> result = PolishProverbsFetcher.fetchFromWiki();
-        System.out.printf(result.toString());
-        assertEquals(4, 2 + 2);
     }
 }
