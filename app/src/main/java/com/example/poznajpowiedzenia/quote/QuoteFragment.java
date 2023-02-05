@@ -5,9 +5,11 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.poznajpowiedzenia.R;
@@ -18,6 +20,9 @@ import com.example.poznajpowiedzenia.R;
  * create an instance of this fragment.
  */
 public class QuoteFragment extends Fragment {
+
+    Button btnFontSizeUp;
+    Button btnFontSizeDown;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,15 +69,31 @@ public class QuoteFragment extends Fragment {
         // Inflate the layout for this fragment
         View quoteView = inflater.inflate(R.layout.fragment_quote, container, false);
 
+        btnFontSizeDown = quoteView.findViewById(R.id.sizeDown);
+        btnFontSizeUp = quoteView.findViewById(R.id.sizeUp);
+
         TextView quoteText = quoteView.findViewById(R.id.quoteText);
+        quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
         TextView meaningText = quoteView.findViewById(R.id.meaning);
+        meaningText.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
         CardView cardView = quoteView.findViewById(R.id.cardview);
 
         String quote = getArguments().getString("quote");
         String meaning = getArguments().getString("meaning");
-
         quoteText.setText(quote);
         meaningText.setText("-" + meaning);
+
+        btnFontSizeUp.setOnClickListener( view -> {
+            if(quoteText.getTextSize() <= 50 && meaningText.getTextSize() <= 50) {
+                quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, quoteText.getTextSize() + 1);
+                meaningText.setTextSize(TypedValue.COMPLEX_UNIT_PX, meaningText.getTextSize() + 1);
+            }
+        });
+
+        btnFontSizeDown.setOnClickListener( view -> {
+            quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, quoteText.getTextSize()-1);
+            meaningText.setTextSize(TypedValue.COMPLEX_UNIT_PX, meaningText.getTextSize()-1);
+        });
 
         return quoteView;
     }
