@@ -60,6 +60,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansA.setOnClickListener( view -> {
+            blockButtonsAfterAnswer();
             checkAnswer(model, ansA.getText().toString(), ansA);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -72,6 +73,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansB.setOnClickListener( view -> {
+            blockButtonsAfterAnswer();
             checkAnswer(model, ansB.getText().toString(), ansB);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -84,6 +86,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansC.setOnClickListener( view -> {
+            blockButtonsAfterAnswer();
             checkAnswer(model, ansC.getText().toString(), ansC);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -96,6 +99,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansD.setOnClickListener( view -> {
+            blockButtonsAfterAnswer();
             checkAnswer(model, ansD.getText().toString(), ansD);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -146,5 +150,12 @@ public class QuizActivity extends AppCompatActivity {
         } else {
             button.setBackgroundColor(Color.parseColor("#FF1616"));
         }
+    }
+
+    public void blockButtonsAfterAnswer() {
+        ansA.setEnabled(false);
+        ansB.setEnabled(false);
+        ansC.setEnabled(false);
+        ansD.setEnabled(false);
     }
 }
