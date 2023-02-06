@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.Voice;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class QuizActivity extends AppCompatActivity {
@@ -26,20 +29,37 @@ public class QuizActivity extends AppCompatActivity {
     TextView ansC;
     TextView ansD;
     TextView numberOfQuestion;
+    Button btn_speak;
+    TextToSpeech textToSpeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if (i != TextToSpeech.ERROR) {
+                    textToSpeech.setLanguage(new Locale("pl"));
+                }
+            }
+        });
+        //textToSpeech.setPitch(0.5F);
+
         btn_back = findViewById(R.id.back_btn);
+        btn_speak = findViewById(R.id.speakBtn);
         question = findViewById(R.id.question);
-//        numberOfQuestion = findViewById(R.id.number_of_question);
+        numberOfQuestion = findViewById(R.id.number_of_question);
         ansA = findViewById(R.id.ans_A);
         ansB = findViewById(R.id.ans_B);
         ansC = findViewById(R.id.ans_C);
         ansD = findViewById(R.id.ans_D);
+
         ListOfQuestions model = (ListOfQuestions) getIntent().getSerializableExtra("questions");
-//        numberOfQuestion.setText(model.getNumberOfQuestion());
+
+        numberOfQuestion.setText("Numer pytania: "+model.getNumberOfQuestion());
+
         question.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getTitle());
         ansA.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect());
         ansB.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect().get(0));
@@ -50,6 +70,25 @@ public class QuizActivity extends AppCompatActivity {
 
         btn_back.setOnClickListener(view -> {
             startActivity(new Intent(this, HomePage.class));
+        });
+
+        btn_speak.setOnClickListener(view -> {
+            textToSpeech.speak("Wybierz poprawne wyjaśnienie przysłowia "
+                            + question.getText().toString(),
+                    TextToSpeech.QUEUE_ADD,
+                    null);
+            textToSpeech.speak(" Odpowiedź A " + ansA.getText().toString(),
+                    TextToSpeech.QUEUE_ADD,
+                    null);
+            textToSpeech.speak(" Odpowiedź B " + ansB.getText().toString(),
+                    TextToSpeech.QUEUE_ADD,
+                    null);
+            textToSpeech.speak(" Odpowiedź C " + ansC.getText().toString(),
+                    TextToSpeech.QUEUE_ADD,
+                    null);
+            textToSpeech.speak( " Odpowiedź D " + ansD.getText().toString(),
+                    TextToSpeech.QUEUE_ADD,
+                    null);
         });
 
         ansA.setOnClickListener( view -> {

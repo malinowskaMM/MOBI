@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.speech.tts.TextToSpeech;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.poznajpowiedzenia.R;
+
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +26,8 @@ public class QuoteFragment extends Fragment {
 
     Button btnFontSizeUp;
     Button btnFontSizeDown;
+    Button btnSpeak;
+    TextToSpeech textToSpeech;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +66,15 @@ public class QuoteFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        textToSpeech = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if (i != TextToSpeech.ERROR) {
+                    textToSpeech.setLanguage(new Locale("pl"));
+                }
+            }
+        });
     }
 
     @Override
@@ -71,6 +85,7 @@ public class QuoteFragment extends Fragment {
 
         btnFontSizeDown = quoteView.findViewById(R.id.sizeDown);
         btnFontSizeUp = quoteView.findViewById(R.id.sizeUp);
+        btnSpeak = quoteView.findViewById(R.id.speakBtn);
 
         TextView quoteText = quoteView.findViewById(R.id.quoteText);
         quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
@@ -95,6 +110,12 @@ public class QuoteFragment extends Fragment {
                 quoteText.setTextSize(TypedValue.COMPLEX_UNIT_PX, quoteText.getTextSize() - 5);
                 meaningText.setTextSize(TypedValue.COMPLEX_UNIT_PX, meaningText.getTextSize() - 5);
             }
+        });
+
+        btnSpeak.setOnClickListener( view -> {
+            textToSpeech.speak(quote, TextToSpeech.QUEUE_ADD, null);
+            textToSpeech.speak(" co oznacza, że ", TextToSpeech.QUEUE_ADD, null);
+            textToSpeech.speak(meaning, TextToSpeech.QUEUE_ADD, null);
         });
 
 
