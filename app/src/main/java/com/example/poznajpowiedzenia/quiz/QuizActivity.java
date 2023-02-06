@@ -75,6 +75,7 @@ public class QuizActivity extends AppCompatActivity {
         question = findViewById(R.id.question);
 
         btn_back.setOnClickListener(view -> {
+            textToSpeech.stop();
             startActivity(new Intent(this, HomePage.class));
         });
 
