@@ -1,6 +1,7 @@
 package com.example.poznajpowiedzenia.controller;
 
 import android.app.Application;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -9,9 +10,11 @@ import androidx.annotation.NonNull;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.poznajpowiedzenia.activities.LoginActivity;
 import com.example.poznajpowiedzenia.data.wiki.Proverb;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -26,6 +29,7 @@ public class AppController extends Application {
     private static  AppController mInstance;
     private RequestQueue mRequestQueue;
     public static List<Proverb> proverbs = new ArrayList<>();
+    FirebaseAuth mAuth;
 
     public static synchronized AppController getInstance() {
         return mInstance;
@@ -50,6 +54,8 @@ public class AppController extends Application {
                         System.out.println(("Error getting documents." + task.getException()));
                     }
                 });
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
     }
 
     public RequestQueue getmRequestQueue() {

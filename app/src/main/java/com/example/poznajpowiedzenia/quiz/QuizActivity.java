@@ -79,22 +79,22 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         btn_speak.setOnClickListener(view -> {
-            textToSpeech.speak("Wybierz poprawne wyjaśnienie przysłowia "
-                            + question.getText().toString(),
-                    TextToSpeech.QUEUE_ADD,
-                    null);
-            textToSpeech.speak(" Odpowiedź A " + ansA.getText().toString(),
-                    TextToSpeech.QUEUE_ADD,
-                    null);
-            textToSpeech.speak(" Odpowiedź B " + ansB.getText().toString(),
-                    TextToSpeech.QUEUE_ADD,
-                    null);
-            textToSpeech.speak(" Odpowiedź C " + ansC.getText().toString(),
-                    TextToSpeech.QUEUE_ADD,
-                    null);
-            textToSpeech.speak( " Odpowiedź D " + ansD.getText().toString(),
-                    TextToSpeech.QUEUE_ADD,
-                    null);
+                textToSpeech.speak("Wybierz poprawne wyjaśnienie przysłowia "
+                                + question.getText().toString(),
+                        TextToSpeech.QUEUE_ADD,
+                        null);
+                textToSpeech.speak(" Odpowiedź A " + ansA.getText().toString(),
+                        TextToSpeech.QUEUE_ADD,
+                        null);
+                textToSpeech.speak(" Odpowiedź B " + ansB.getText().toString(),
+                        TextToSpeech.QUEUE_ADD,
+                        null);
+                textToSpeech.speak(" Odpowiedź C " + ansC.getText().toString(),
+                        TextToSpeech.QUEUE_ADD,
+                        null);
+                textToSpeech.speak(" Odpowiedź D " + ansD.getText().toString(),
+                        TextToSpeech.QUEUE_ADD,
+                        null);
         });
 
         ansA.setOnClickListener( view -> {
@@ -104,10 +104,11 @@ public class QuizActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Do something after 5s = 5000ms
+                    // Do something after 1s = 1000ms
                     startActivity(nextQuestion(model, ansA.getText().toString()));
                 }
             }, 1000);
+            textToSpeech.stop();
         });
 
         ansB.setOnClickListener( view -> {
@@ -117,10 +118,11 @@ public class QuizActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Do something after 5s = 5000ms
+                    // Do something after 1s = 1000ms
                     startActivity(nextQuestion(model, ansB.getText().toString()));
                 }
             }, 1000);
+            textToSpeech.stop();
         });
 
         ansC.setOnClickListener( view -> {
@@ -130,10 +132,11 @@ public class QuizActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Do something after 5s = 5000ms
+                    // Do something after 1s = 1000ms
                     startActivity(nextQuestion(model, ansC.getText().toString()));
                 }
             }, 1000);
+            textToSpeech.stop();
         });
 
         ansD.setOnClickListener( view -> {
@@ -143,10 +146,11 @@ public class QuizActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Do something after 5s = 5000ms
+                    // Do something after 1s = 1000ms
                     startActivity(nextQuestion(model, ansD.getText().toString()));
                 }
             }, 1000);
+            textToSpeech.stop();
         });
     }
 
