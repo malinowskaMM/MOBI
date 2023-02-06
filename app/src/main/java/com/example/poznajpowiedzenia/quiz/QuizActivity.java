@@ -14,7 +14,10 @@ import com.example.poznajpowiedzenia.activities.HomePage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class QuizActivity extends AppCompatActivity {
@@ -41,10 +44,14 @@ public class QuizActivity extends AppCompatActivity {
         ListOfQuestions model = (ListOfQuestions) getIntent().getSerializableExtra("questions");
 //        numberOfQuestion.setText(model.getNumberOfQuestion());
         question.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getTitle());
-        ansA.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect());
-        ansB.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect().get(0));
-        ansC.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect().get(1));
-        ansD.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect().get(2));
+        List<String> answerList = new ArrayList<>();
+        answerList.addAll(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect());
+        answerList.add(model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect());
+        Collections.shuffle(answerList);//przelosowanie wszystkich odpowiedzi
+        ansA.setText(answerList.get(0));
+        ansB.setText(answerList.get(1));
+        ansC.setText(answerList.get(2));
+        ansD.setText(answerList.get(3));
 
         question = findViewById(R.id.question);
 
