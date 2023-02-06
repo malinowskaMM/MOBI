@@ -34,6 +34,7 @@
         android:layout_width="158dp"
         android:layout_height="74dp"
         android:layout_marginTop="24dp"
+        android:background="#865E1F"
         android:text="PROFIL"
         android:textSize="@dimen/font_size"
         app:layout_constraintBottom_toTopOf="@+id/viewPager"

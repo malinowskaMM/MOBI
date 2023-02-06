@@ -95,8 +95,9 @@
                 android:layout_height="77dp"
                 android:layout_below="@id/choices_layout"
                 android:layout_marginStart="31dp"
-                android:layout_marginEnd="31dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginEnd="31dp"
+                android:background="#865E1F"
                 android:text="Wroć"
                 android:textSize="@dimen/font_size" />
 
@@ -110,6 +111,7 @@
                 android:layout_marginStart="148dp"
                 android:layout_marginTop="23dp"
                 android:layout_marginEnd="154dp"
+                android:background="#865E1F"
                 android:text="MÓW" />
 
         </RelativeLayout>
