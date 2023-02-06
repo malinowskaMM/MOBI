@@ -92,11 +92,13 @@
 
             <Button
                 android:id="@+id/back_btn"
-                android:layout_width="361dp"
-                android:layout_height="77dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/choices_layout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginStart="31dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="31dp"
                 android:background="#865E1F"
                 android:text="Wroć"
