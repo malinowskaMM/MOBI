@@ -16,7 +16,10 @@ import com.example.poznajpowiedzenia.activities.HomePage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -45,7 +48,6 @@ public class QuizActivity extends AppCompatActivity {
                 }
             }
         });
-        //textToSpeech.setPitch(0.5F);
 
         btn_back = findViewById(R.id.back_btn);
         btn_speak = findViewById(R.id.speakBtn);
@@ -61,10 +63,14 @@ public class QuizActivity extends AppCompatActivity {
         numberOfQuestion.setText("Numer pytania: "+model.getNumberOfQuestion());
 
         question.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getTitle());
-        ansA.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect());
-        ansB.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect().get(0));
-        ansC.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect().get(1));
-        ansD.setText(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect().get(2));
+        List<String> answerList = new ArrayList<>();
+        answerList.addAll(model.questionList().get(model.getNumberOfQuestion() - 1).getIncorrect());
+        answerList.add(model.questionList().get(model.getNumberOfQuestion() - 1).getCorrect());
+        Collections.shuffle(answerList);//przelosowanie wszystkich odpowiedzi
+        ansA.setText(answerList.get(0));
+        ansB.setText(answerList.get(1));
+        ansC.setText(answerList.get(2));
+        ansD.setText(answerList.get(3));
 
         question = findViewById(R.id.question);
 
@@ -92,6 +98,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansA.setOnClickListener( view -> {
+            blockButtonsAfterAnswer();
             checkAnswer(model, ansA.getText().toString(), ansA);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -104,6 +111,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansB.setOnClickListener( view -> {
+            blockButtonsAfterAnswer();
             checkAnswer(model, ansB.getText().toString(), ansB);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -116,6 +124,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansC.setOnClickListener( view -> {
+            blockButtonsAfterAnswer();
             checkAnswer(model, ansC.getText().toString(), ansC);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -128,6 +137,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         ansD.setOnClickListener( view -> {
+            blockButtonsAfterAnswer();
             checkAnswer(model, ansD.getText().toString(), ansD);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -178,5 +188,12 @@ public class QuizActivity extends AppCompatActivity {
         } else {
             button.setBackgroundColor(Color.parseColor("#FF1616"));
         }
+    }
+
+    public void blockButtonsAfterAnswer() {
+        ansA.setEnabled(false);
+        ansB.setEnabled(false);
+        ansC.setEnabled(false);
+        ansD.setEnabled(false);
     }
 }
