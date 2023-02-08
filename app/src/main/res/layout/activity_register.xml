@@ -9,95 +9,107 @@
     android:padding="24dp"
     tools:context=".activities.RegisterActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:src="@drawable/logo" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
-            android:gravity="center_horizontal"
-            android:text="Zarejestruj się"
-            android:textColor="@color/teal_700"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etRegEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:textColor="#060606" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etRegPass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:textColor="#060606" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="#865E1F"
-            android:text="Zarejestruj się" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Posiadasz konto?"
-                android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/logo" />
 
-            <TextView
-                android:id="@+id/tvLoginHere"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:text="Zaloguj się"
-                android:textColor="@color/teal_700"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:gravity="center_horizontal"
+                    android:text="Zarejestruj się"
+                    android:textColor="@color/teal_700"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etRegEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#060606" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etRegPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:textColor="#060606" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="#865E1F"
+                    android:text="Zarejestruj się" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Posiadasz konto?"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvLoginHere"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="Zaloguj się"
+                        android:textColor="@color/teal_700"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
