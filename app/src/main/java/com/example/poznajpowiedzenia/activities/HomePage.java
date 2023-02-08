@@ -47,8 +47,30 @@ public class HomePage extends AppCompatActivity {
         }
         else {
             String nowaliczba = LoginActivity.getInstance();
-            result.setText(nowaliczba);
+            if(nowaliczba.equals("null") && mAuth.getCurrentUser() != null) {
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("Users")
+                        .document(mAuth.getCurrentUser().getEmail())
+                        .get()
+                        .addOnCompleteListener(task1 -> {
+                            if (task1.isSuccessful()) {
+                                final String value = String.valueOf(task1.getResult().getLong("result"));
+                                if(value.equals("null")) {
+                                    result.setText("brak");
+                                } else {
+                                    result.setText(value);
+                                }
+                            } else {
+                                System.out.println(("Error getting documents." + task1.getException()));
+                            }
+                        });
+            }
+            else {
+                result.setText(nowaliczba);
+            }
         }
+
         btnLogOut.setOnClickListener(view -> {
             mAuth.signOut();
 
