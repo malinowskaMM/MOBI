@@ -1,6 +1,6 @@
 # Poznaj Powiedzenia
 
-**Poznaj Powiedzenia** is a web application designed to help users learn Polish proverbs and their meanings in an interactive and inclusive way.
+**Poznaj Powiedzenia** is a mobile application designed to help users learn Polish proverbs and their meanings in an interactive and inclusive way.
 
 ## Screenshots
 
